@@ -7,8 +7,8 @@ static const unsigned int snap      = 32;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
 enum showtab_modes { showtab_never, showtab_auto, showtab_nmodes, showtab_always };
 static const int showtab            = showtab_auto;
-static const int toptab             = True;
-static const int topbar             = 0;        /* 0 means bottom bar */
+static const int toptab             = 0;
+static const int topbar             = True;        /* 0 means bottom bar */
 static const unsigned int systraypinning = 0;   /* 0: sloppy systray follows selected monitor, >0: pin systray to monitor X */
 static const unsigned int systrayspacing = 2;   /* systray spacing */
 static const int systraypinningfailfirst = 1;   /* 1: if pinning fails, display systray on the first monitor, False: display systray on the last monitor*/
@@ -19,22 +19,22 @@ static const int vertpadtab         = 37;       /* Vertical padding for tab */
 static const int horizpadtabi       = 15;       /* Horizon padding in tab */
 static const int horizpadtabo       = 15;       /* Horizon padding at the tab edge */
 static const Bool viewontag         = True;     /* Switch view on tag switch */
-static const char *fonts[]          = { "Ubuntu Nerd Font:size=10" };
+static const char *fonts[]          = { "FiraCode Nerd Font:size=11" };
 static const char col_cyan[]        = "#70c0ba";
 static const char bluegray[]        = "#2e3440";
-static const char white[]           = "#eeeeee";
+static const char white[]           = "#ca5959";
 static const char black[]           = "#232831";
-static const char bg_normal[]           = "#1C1F24";
-static const char bg_focus[]           = "#282C34";
-static const char fg_normal[]           = "#606672";
-static const char selected_border_color[] = "#6A6A6B";
+static const char bg_normal[]           = "#acffea";
+static const char bg_focus[]           = "#acffea";
+static const char fg_normal[]           = "#1b2523";
+static const char selected_border_color[] = "#1b2523";
 static const int CORNER_RADIUS = 10;
 
 /* More about exadecimal color code for transparency can check:
  * https://gist.github.com/lopspower/03fb1cc0ac9f32ef38f4 */
-static const unsigned int baralpha = 0xBF; /* 75% */
-static const unsigned int tabalpha = 0xBF; /* 90% */
-static const unsigned int borderalpha = 0xE6;
+static const unsigned int baralpha = 0xFF; /* 75% */
+static const unsigned int tabalpha = 0xFF; /* 90% */
+static const unsigned int borderalpha = 0xFF;
 
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
@@ -89,7 +89,7 @@ static const char* monocle_windows_count_tags[] = {
 };
 
 /* key definitions */
-#define MODKEY Mod4Mask
+#define MODKEY Mod1Mask
 #define TAGKEYS(KEY,TAG) \
 	{ MODKEY,                       KEY,      view,           {.ui = 1 << TAG} }, \
 	{ MODKEY|ControlMask,           KEY,      toggleview,     {.ui = 1 << TAG} }, \
@@ -101,22 +101,22 @@ static const char* monocle_windows_count_tags[] = {
 
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
-static const char *dmenucmd[] = { "fish", "-c", "dmenu_run",  NULL };
+static const char *dmenucmd[] = { "dmenu_run", "-l", "20",  NULL };
 static const char *scscmd[] = { "flameshot", "gui",  NULL };
-static const char *termcmd[]  = { "st", "-c", "simp-term", NULL };
+static const char *termcmd[]  = { "alacritty", NULL };
 /* static const char *termcmd[]  = { "tabbed", "-d", "-r", "2", "st", "-w", "\"\"", NULL }; */
 
-/* changed all sh1marin to your name */
-static const char *powercmd[] = { "/home/sh1marin/.local/share/dwm/power", NULL };
-static const char *chwpcmd[] = { "/home/sh1marin/.local/share/dwm/chwp", NULL };
-static const char *volupcmd[] = { "/home/sh1marin/.local/share/dwm/dwm-volume-ctl", "up", NULL };
-static const char *voldowncmd[] = { "/home/sh1marin/.local/share/dwm/dwm-volume-ctl", "down", NULL };
-static const char *playerctlcmd[] = { "/home/sh1marin/.local/share/dwm/playerctl.sh", NULL };
+/* changed all ocfox to your name */
+static const char *powercmd[] = { "/home/ocfox/.local/share/dwm/power", NULL };
+static const char *chwpcmd[] = { "/home/ocfox/.local/share/dwm/chwp", NULL };
+static const char *volupcmd[] = { "/home/ocfox/.local/share/dwm/dwm-volume-ctl", "up", NULL };
+static const char *voldowncmd[] = { "/home/ocfox/.local/share/dwm/dwm-volume-ctl", "down", NULL };
+static const char *playerctlcmd[] = { "/home/ocfox/.local/share/dwm/playerctl.sh", NULL };
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
-	{ MODKEY,                       XK_o, spawn,          {.v = dmenucmd } },
-	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
+	{ MODKEY,                       XK_o,      spawn,          {.v = dmenucmd } },
+	{ MODKEY,                       XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY|ShiftMask,             XK_s,      spawn,          {.v = scscmd } },
 	{ MODKEY|ShiftMask,             XK_b,      spawn,          {.v = chwpcmd } },
 	{ MODKEY|ShiftMask,             XK_e,      spawn,          {.v = powercmd } },
