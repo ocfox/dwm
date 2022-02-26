@@ -7,7 +7,7 @@ SRC = drw.c dwm.c util.c
 OBJ = ${SRC:.c=.o}
 
 # change name here
-HOMEDIR = /home/sh1marin
+HOMEDIR = /home/ocfox
 
 all: options dwm
 
@@ -40,7 +40,7 @@ dist: clean
 	rm -rf dwm-${VERSION}
 
 install: all
-	mkdir -p ${DESTDIR}${PREFIX}/bin ${HOMEDIR}/.local/share/dwm
+	mkdir -p ${DESTDIR}${PREFIX}/bin #${HOMEDIR}/.local/share/dwm
 	cp -f dwm ${DESTDIR}${PREFIX}/bin
 	chmod 755 ${DESTDIR}${PREFIX}/bin/dwm
 	mkdir -p ${DESTDIR}${MANPREFIX}/man1
