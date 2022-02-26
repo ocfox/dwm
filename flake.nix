@@ -9,6 +9,7 @@
 
       overlay = final: prev: {
         dwm = prev.dwm.overrideAttrs (old: {
+          buildInputs = (old.buildInputs or []) ++ [ final.xorg.libXext ];
           src = builtins.path { path = ./src; name = "dwm"; };
         });
       };
