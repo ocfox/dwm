@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 feh --bg-fill --randomize --recursive ~/Pictures/Wallpapers
 notify-send "Wallpapers has changed"

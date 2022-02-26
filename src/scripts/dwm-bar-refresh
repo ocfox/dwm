@@ -1,21 +1,21 @@
-#!/bin/bash
+#!/bin/sh
 
-SPLITER=" ^c#bcbcbc^|^d^ "
-FG="^c#eaeaea^"
+SPLITER=" ^c#1b2523^|^d^ "
+FG="^c#1b2523^"
 
 get_date() {
-	printf "$FG^d^ "
-	printf "$FG$(date '+%B/%d %I:%M ^c#ABBAC1^%p^d^') ^d^"
+	printf "$FG ^d^ "
+	printf "$FG$(date '+%B/%d %I:%M ^c#eb4034^%p^d^') ^d^"
 }
 
 # battery
 # changed battery here
-battery="Battery 0"
-batt() {
-	printf "$FG$(acpi | grep "$battery" \
-    | sed "s/,//g" | sed "s/%/%%/g" \
-    | awk '{if ($3 == "Discharging"){print "  " $4; exit} else {print " " $4}}')^d^"
-}
+# battery="Battery 0"
+# batt() {
+# 	printf "$FG$(acpi | grep "$battery" \
+#     | sed "s/,//g" | sed "s/%/%%/g" \
+#     | awk '{if ($3 == "Discharging"){print "  " $4; exit} else {print " " $4}}')^d^"
+# }
 
 volume() {
 	printf "$FG "
@@ -38,8 +38,10 @@ get_song_info() {
 }
 
 song() {
-	printf "$FG^b#0c0c0c^ "
-	printf "$FG ^b#171617^ $(get_song_info) ^d^" 
+	# printf "$FG^b#0c0c0c^ "
+	printf "$FG  "
+	# printf "$FG ^b#171617^ $(get_song_info) ^d^" 
+	printf "$FG $(get_song_info) ^d^" 
 }
 
 prepend_text() {
@@ -47,8 +49,8 @@ prepend_text() {
 	text+="$(song)"
 	text+=$SPLITER
 	text+="$(volume)"
-	text+=$SPLITER
-	text+="$(batt)"
+	# text+=$SPLITER
+	# text+="$(batt)"
 	text+=$SPLITER
 	text+="$(get_date)"
 
