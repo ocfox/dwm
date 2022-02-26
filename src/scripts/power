@@ -3,7 +3,7 @@
 options="shutdown\nreboot\nsuspend\ncancel\n"
 
 selection="$(echo -e $options | \
-             dmenu -i -p "start typing")"
+             dmenu -i -l 5)"
 
 case $selection in
 	shutdown) systemctl poweroff
