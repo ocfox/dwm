@@ -24,7 +24,7 @@ static const char col_cyan[]        = "#70c0ba";
 static const char bluegray[]        = "#2e3440";
 static const char white[]           = "#ca5959";
 static const char black[]           = "#232831";
-static const char bg_normal[]           = "#acffea";
+static const char bg_normal[]           = "#1c1f24";
 static const char bg_focus[]           = "#acffea";
 static const char fg_normal[]           = "#1b2523";
 static const char selected_border_color[] = "#1b2523";
@@ -32,8 +32,8 @@ static const int CORNER_RADIUS = 10;
 
 /* More about exadecimal color code for transparency can check:
  * https://gist.github.com/lopspower/03fb1cc0ac9f32ef38f4 */
-static const unsigned int baralpha = 0xFF; /* 75% */
-static const unsigned int tabalpha = 0xFF; /* 90% */
+static const unsigned int baralpha = 0x80; /* 75% */
+static const unsigned int tabalpha = 0x80; /* 90% */
 static const unsigned int borderalpha = 0xFF;
 
 static const char *colors[][3]      = {
