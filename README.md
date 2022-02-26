@@ -1,56 +1,40 @@
-dwm - dynamic window manager
-============================
-dwm is an extremely fast, small, and dynamic window manager for X.
+## Build Instruction
+
+Before install you need mkdir `/home/YOURUSERNAME/.local/share/dwm`
+
+```sh
+mkdir -p ~/.local/share/dwm
+```
+and put the script there. So it's necessary to change the `HOMEDIR` variable in the Makefile.
 
 
-Customizations
---------------
-Applied systray, pertag patches and configured statusbar to show
-on all monitors.
-Added keybindings for audio, backlight, screen locker, screenshots
-and some programs.
+And the script's keyboard shortcut is also hardcoded. 
+Changed the variable listed below to successfully execute the script.
 
+```c
+static const char *powercmd[] = { "/home/YOURUSERNAME/.local/share/dwm/power", NULL };
+static const char *chwpcmd[] = { "/home/YOURUSERNAME/.local/share/dwm/chwp", NULL };
+static const char *volupcmd[] = { "/home/YOURUSERNAME/.local/share/dwm/dwm-volume-ctl", "up", NULL };
+static const char *voldowncmd[] = { "/home/YOURUSERNAME/.local/share/dwm/dwm-volume-ctl", "down", NULL };
+```
 
-Requirements
-------------
-In order to build dwm you need the Xlib header files.
+I want to use the `getenv("HOME")` funtion provided in the `stdlib.h`. But the config
+header file only accept static const value, so you can only replace the name manually.
 
+## Quicker reload
+If you are using xinitrc to run dwm, use this while loop to run your dwm:
 
-Installation
-------------
-Edit config.mk to match your local setup (dwm is installed into
-the /usr/local namespace by default).
+```bash
+while : ; do
+    dwm && break || continue
+    # sleep 5
+done
+```
 
-Afterwards enter the following command to build and install dwm (if
-necessary as root):
+Use `pkill dwm` to kill the current dwm instance, it will exit 1 that break the before
+if statement and continue the while loop. It will exit 0 if you close the dwm manually.
 
-    make clean install
+It is recommended to add a sleep after the loop, this can help prevent the dwm launch
+too fast. It is useful when your dwm exit with error like segment fault.
 
-
-Running dwm
------------
-Add the following line to your .xinitrc to start dwm using startx:
-
-    exec dwm
-
-In order to connect dwm to a specific display, make sure that
-the DISPLAY environment variable is set correctly, e.g.:
-
-    DISPLAY=foo.bar:1 exec dwm
-
-(This will start dwm on display :1 of the host foo.bar.)
-
-In order to display status info in the bar, you can do something
-like this in your .xinitrc:
-
-    while xsetroot -name "`date` `uptime | sed 's/.*,//'`"
-    do
-    	sleep 1
-    done &
-    exec dwm
-
-
-Configuration
--------------
-The configuration of dwm is done by creating a custom config.h
-and (re)compiling the source code.
+![desktop](https://i.imgur.com/vlhXKhV.png)
