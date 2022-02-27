@@ -19,13 +19,13 @@ static const int vertpadtab         = 37;       /* Vertical padding for tab */
 static const int horizpadtabi       = 15;       /* Horizon padding in tab */
 static const int horizpadtabo       = 15;       /* Horizon padding at the tab edge */
 static const Bool viewontag         = True;     /* Switch view on tag switch */
-static const char *fonts[]          = { "FiraCode Nerd Font:size=11" };
+static const char *fonts[]          = { "FiraCode Nerd Font:size=14" };
 static const char col_cyan[]        = "#70c0ba";
 static const char bluegray[]        = "#2e3440";
-static const char white[]           = "#ca5959";
+static const char white[]           = "#ffffff";
 static const char black[]           = "#232831";
 static const char bg_normal[]           = "#1c1f24";
-static const char bg_focus[]           = "#acffea";
+static const char bg_focus[]           = "#1c1f24";
 static const char fg_normal[]           = "#1b2523";
 static const char selected_border_color[] = "#1b2523";
 static const int CORNER_RADIUS = 10;
@@ -181,4 +181,3 @@ static Button buttons[] = {
 	{ ClkTagBar,            MODKEY,         Button3,        toggletag,      {0} },
 	{ ClkTabBar,            0,              Button1,        focuswin,       {0} },
 };
-
