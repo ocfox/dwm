@@ -8,7 +8,7 @@ static const int showbar            = 1;        /* 0 means no bar */
 enum showtab_modes { showtab_never, showtab_auto, showtab_nmodes, showtab_always };
 static const int showtab            = showtab_auto;
 static const int toptab             = 0;
-static const int topbar             = true;        /* 0 means bottom bar */
+static const int topbar             = 1;        /* 0 means bottom bar */
 static const unsigned int systraypinning = 0;   /* 0: sloppy systray follows selected monitor, >0: pin systray to monitor X */
 static const unsigned int systrayspacing = 2;   /* systray spacing */
 static const int systraypinningfailfirst = 1;   /* 1: if pinning fails, display systray on the first monitor, False: display systray on the last monitor*/
@@ -18,7 +18,7 @@ static const int vertpadbar         = 12;        /* vertical padding for statusb
 static const int vertpadtab         = 37;       /* Vertical padding for tab */
 static const int horizpadtabi       = 15;       /* Horizon padding in tab */
 static const int horizpadtabo       = 15;       /* Horizon padding at the tab edge */
-static const Bool viewontag         = true;     /* Switch view on tag switch */
+static const Bool viewontag         = True;     /* Switch view on tag switch */
 static const char *fonts[]          = { "FiraCode Nerd Font:size=15" };
 static const char col_cyan[]        = "#70c0ba";
 static const char bluegray[]        = "#2e3440";
