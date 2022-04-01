@@ -6,6 +6,7 @@
   outputs = { self, nixpkgs }:
     let
       system = "x86_64-linux";
+      forAllSystems = f: nixpkgs.lib.genAttrs supportedSystems (system: f system);
     in
     {
       overlay = final: prev: {
