@@ -6,7 +6,6 @@
   outputs = { self, nixpkgs }:
     let
       system = "x86_64-linux";
-      forAllSystems = f: nixpkgs.lib.genAttrs supportedSystems (system: f system);
     in
     {
       overlay = final: prev: {
@@ -16,9 +15,9 @@
           src = builtins.path { path = ./.; name = "dwm"; };
         };
       };
-      defaultPackage = forAllSystems (system: (import nixpkgs {
+      defaultPackage = system: (import nixpkgs {
         inherit system;
         overlays = [ self.overlay nix.overlay ];
-      }).dwm);
+      }).dwm;
     };
 }
