@@ -17,7 +17,7 @@
       };
       defaultPackage = system: (import nixpkgs {
         inherit system;
-        overlays = [ self.overlay nix.overlay ];
+        overlays = [ self.overlay ];
       }).dwm;
     };
 }
