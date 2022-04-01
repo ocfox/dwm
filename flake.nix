@@ -11,7 +11,7 @@
       overlay = final: prev: {
         dwm = with final; let nix = final.nix; in stdenv.mkDerivation {
           name = "dwm";
-          buildInputs = (old.buildInputs or []) ++ [ final.xorg.libXext ];
+          buildInputs = [ final.xorg.libXext ];
           src = builtins.path { path = ./.; name = "dwm"; };
         };
       };
