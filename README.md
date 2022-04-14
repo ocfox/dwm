@@ -37,4 +37,6 @@ if statement and continue the while loop. It will exit 0 if you close the dwm ma
 It is recommended to add a sleep after the loop, this can help prevent the dwm launch
 too fast. It is useful when your dwm exit with error like segment fault.
 
-![desktop](https://i.imgur.com/vlhXKhV.png)
+<img width="1281" alt="desktop1" src="https://user-images.githubusercontent.com/47410251/163301904-105e1823-ba68-49f2-a48a-e1570315c295.png">
+
+<img width="960" alt="image" src="https://user-images.githubusercontent.com/47410251/163302016-8c1f74e4-c423-43a9-93c3-6769d313f8f2.png">
